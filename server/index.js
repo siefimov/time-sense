@@ -3,6 +3,8 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
+const router = require('./router/index');
+const errorMiddleware = require('./middlewares/error.maddleware');
 
 const PORT = process.env.PORT || 5000;
 const app = express();
@@ -17,9 +19,8 @@ app.use(
     })
 );
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
+app.use('/api', router);
+app.use(errorMiddleware);
 
 const start = async () => {
     try {
