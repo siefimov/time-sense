@@ -7,7 +7,7 @@ const UserDto = require('../dtos/user.dto');
 const ApiError = require('../exceptions/api-error');
 
 class UserService {
-    async registration(email, password) {
+    async registration(userName, email, password) {
         // check if password already exists
         const candidate = await UserModel.findOne({ email });
         if (candidate) {
