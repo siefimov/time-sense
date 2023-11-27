@@ -1,12 +1,20 @@
 import { FC, useState } from 'react';
-import { useAppDispatch } from '../../store/hooks';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { login, registration } from '../../store/auth/authThunks';
+import { useNavigate } from 'react-router-dom';
 
 export const LoginForm: FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
+  const user = useAppSelector((state) => state.users);
+  const navigate = useNavigate();
+
   const dispatch = useAppDispatch();
+
+  if (user.isAuth) {
+    navigate('/');
+  }
 
   return (
     <div>
