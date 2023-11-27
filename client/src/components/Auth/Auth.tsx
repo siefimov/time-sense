@@ -35,7 +35,7 @@ const Auth: FC = () => {
 
   return (
     <div>
-      <h1>{user.isAuth ? `User is authorized ${user.user.email}` : 'Log In'}</h1>
+      <h1>{user.isAuth ? `User is authorized ${user.user.userName}` : 'Log In'}</h1>
       <h1>{user.user.isActivated ? 'Account is activated' : 'Comfirm your account'}</h1>
       <button onClick={() => dispatch(logout())}>Log Out</button>
       <div>
