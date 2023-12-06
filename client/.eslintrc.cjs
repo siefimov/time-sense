@@ -6,4 +6,10 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': 'off',
   },
+  overrides: [
+    {
+      files: ['src/**/*Slice.ts'],
+      rules: { 'no-param-reassign': ['error', { props: false }] },
+    },
+  ],
 };
