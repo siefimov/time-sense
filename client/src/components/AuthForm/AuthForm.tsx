@@ -1,15 +1,15 @@
 import { FC, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { login, registration } from '../../store/auth/authThunks';
-import { useNavigate } from 'react-router-dom';
 
-export const LoginForm: FC = () => {
+export const AuthForm: FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
   const user = useAppSelector((state) => state.users);
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   if (user.isAuth) {
@@ -30,8 +30,12 @@ export const LoginForm: FC = () => {
         type="password"
         placeholder="Password"
       />
-      <button onClick={() => dispatch(login({ email, password }))}>Login</button>
-      <button onClick={() => dispatch(registration({ email, password }))}>Registration</button>
+      <button type="button" onClick={() => dispatch(login({ email, password }))}>
+        Login
+      </button>
+      <button type="button" onClick={() => dispatch(registration({ email, password }))}>
+        Registration
+      </button>
     </div>
   );
 };
