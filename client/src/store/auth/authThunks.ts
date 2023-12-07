@@ -5,7 +5,6 @@ import { setAuth, setLoading, setUser } from './authSlice';
 import { IUser } from '../../models/IUser';
 import { AuthResponse } from '../../models/response/AuthResponse';
 import { API_URL } from '../../http';
-import { as } from 'vitest/dist/reporters-5f784f42';
 
 export const login = createAsyncThunk(
   'auth/login',
