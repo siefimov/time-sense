@@ -19,7 +19,7 @@ const Header: FC = () => {
         }}
       >
         <h3 style={{ margin: '5px' }}>
-          {userData.isAuth ? `Wellcome, ${userData.user.userName}` : 'Log In'}
+          {userData.isAuth && `Wellcome, ${userData.user.userName}`}
         </h3>
         <p>{userData.user.isActivated ? 'Account is activated' : 'Confirm your account'}</p>
         <button type="button" onClick={() => dispatch(logout())}>
