@@ -19,6 +19,7 @@ const Header: FC = () => {
         }}
       >
         <h3 style={{ margin: '5px' }}>
+          {userData.isAuth ? 'You are logged in' : 'You are not logged in'}
           {userData.isAuth && `Wellcome, friend ${userData.user.userName}`}
         </h3>
         <p>{userData.user.isActivated ? 'Account is activated' : 'Confirm your account'}</p>
