@@ -18,14 +18,13 @@ const Header: FC = () => {
           padding: '15px',
         }}
       >
-        <h3 style={{ margin: '5px' }}>
-          {userData.isAuth ? 'You are logged in' : 'You are not logged in'}
-          {userData.isAuth && `Wellcome, friend ${userData.user.userName}`}
-        </h3>
+        <h2>Be Cool!</h2>
+        <h3 style={{ margin: '5px' }}>Welcome! {userData.user.email}</h3>
         <p>{userData.user.isActivated ? 'Account is activated' : 'Confirm your account'}</p>
         <button type="button" onClick={() => dispatch(logout())}>
-          Log Out
+          <span>Log Out</span>
         </button>
+        <button>Reset</button>
       </div>
     </div>
   );
